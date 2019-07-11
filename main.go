@@ -7,7 +7,6 @@ import (
 	"log"
 	"net/http"
 	"net/url"
-	"strings"
 )
 
 func checkPanic(err error) {
@@ -29,8 +28,7 @@ func login(voucherCode string) {
 	checkPanic(err)
 	responseBody, err := ioutil.ReadAll(response.Body)
 	checkPanic(err)
-	responseBodyData := string(responseBody)
-	fmt.Println(strings.Contains(responseBodyData, "success"))
+	fmt.Println(string(responseBody))
 }
 
 func main() {
